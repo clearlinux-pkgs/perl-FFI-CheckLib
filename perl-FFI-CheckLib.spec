@@ -4,13 +4,14 @@
 #
 Name     : perl-FFI-CheckLib
 Version  : 0.25
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.25.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.25.tar.gz
 Summary  : 'Check that a library is available for FFI'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-FFI-CheckLib-license = %{version}-%{release}
+Requires: perl-FFI-CheckLib-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(Importer)
 BuildRequires : perl(Sub::Info)
@@ -43,8 +44,18 @@ Group: Default
 license components for the perl-FFI-CheckLib package.
 
 
+%package perl
+Summary: perl components for the perl-FFI-CheckLib package.
+Group: Default
+Requires: perl-FFI-CheckLib = %{version}-%{release}
+
+%description perl
+perl components for the perl-FFI-CheckLib package.
+
+
 %prep
 %setup -q -n FFI-CheckLib-0.25
+cd %{_builddir}/FFI-CheckLib-0.25
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -69,7 +80,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-FFI-CheckLib
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-FFI-CheckLib/LICENSE
+cp %{_builddir}/FFI-CheckLib-0.25/LICENSE %{buildroot}/usr/share/package-licenses/perl-FFI-CheckLib/8c55a3fb07df5b7d899c736fabd29f2dc765210c
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -82,7 +93,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/FFI/CheckLib.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -90,4 +100,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-FFI-CheckLib/LICENSE
+/usr/share/package-licenses/perl-FFI-CheckLib/8c55a3fb07df5b7d899c736fabd29f2dc765210c
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/FFI/CheckLib.pm
