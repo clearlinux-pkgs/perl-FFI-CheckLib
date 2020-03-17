@@ -4,7 +4,7 @@
 #
 Name     : perl-FFI-CheckLib
 Version  : 0.26
-Release  : 3
+Release  : 4
 URL      : https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.26.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.26.tar.gz
 Summary  : 'Check that a library is available for FFI'
@@ -104,4 +104,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/FFI/CheckLib.pm
+/usr/lib/perl5/vendor_perl/5.30.2/FFI/CheckLib.pm
