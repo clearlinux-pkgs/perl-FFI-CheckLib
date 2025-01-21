@@ -4,7 +4,7 @@
 #
 Name     : perl-FFI-CheckLib
 Version  : 0.31
-Release  : 21
+Release  : 22
 URL      : https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.31.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/FFI-CheckLib-0.31.tar.gz
 Summary  : 'Check that a library is available for FFI'
